@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06182a">
+<title>Amigo Oculto 🎄</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noite: #06182a;
+  --noite-2: #0d2f47;
+  --creme: #fff8ec;
+  --vermelho: #c8283a;
+  --vermelho-escuro: #9c1c2c;
+  --verde: #1f7a55;
+  --ouro: #f4c95d;
+  --tinta: #14303f;
+  --tinta-suave: #4a626e;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font-family: Nunito, system-ui, sans-serif;
+  color: var(--tinta);
+  background: linear-gradient(180deg, var(--noite) 0%, var(--noite-2) 62%, #174a5f 100%) fixed;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* cenário */
+.aurora { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+.aurora i {
+  position: absolute; border-radius: 50%; filter: blur(70px); opacity: .5;
+  animation: aurora 16s ease-in-out infinite alternate;
+}
+.aurora i:nth-child(1) { width: 70vw; height: 34vh; left: -15vw; top: 2vh; background: #2fe0a0; }
+.aurora i:nth-child(2) { width: 60vw; height: 28vh; right: -12vw; top: 10vh; background: #37b6e6; animation-delay: -5s; }
+.aurora i:nth-child(3) { width: 50vw; height: 24vh; left: 25vw; top: -6vh; background: #9a6bff; opacity: .35; animation-delay: -9s; }
+@keyframes aurora {
+  from { transform: translate3d(-4vw, 0, 0) scale(1) skewX(-8deg); }
+  to   { transform: translate3d(6vw, 4vh, 0) scale(1.25) skewX(10deg); }
+}
+#neve, #confete { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#confete { z-index: 5; }
+#floresta { position: fixed; left: 0; bottom: 0; width: 100%; height: 30vh; min-height: 150px; pointer-events: none; }
+
+/* idiomas */
+.idiomas {
+  position: relative; z-index: 3; display: flex; justify-content: center; gap: 8px;
+  padding: 16px 16px 0;
+}
+.idiomas button {
+  font: 800 14px Nunito, sans-serif; letter-spacing: .06em;
+  color: var(--creme); background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.35); border-radius: 999px;
+  padding: 9px 16px; cursor: pointer; transition: background .2s, color .2s, transform .15s;
+}
+.idiomas button:hover { background: rgba(255,255,255,.22); }
+.idiomas button:active { transform: scale(.95); }
+.idiomas button[aria-pressed="true"] { background: var(--creme); color: var(--tinta); border-color: var(--creme); }
+
+/* cartão */
+main {
+  position: relative; z-index: 2;
+  display: grid; place-items: center;
+  padding: 20px 16px 22vh;
+  min-height: calc(100dvh - 60px);
+}
+.cartao {
+  width: min(100%, 460px);
+  background: var(--creme);
+  border-radius: 28px;
+  padding: 34px 26px 30px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0,0,0,.45), 0 0 0 6px rgba(255,255,255,.12);
+  position: relative;
+  animation: chegar .8s cubic-bezier(.2,.9,.3,1.2) both;
+}
+.cartao::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 12px;
+  border-radius: 28px 28px 0 0;
+  background: repeating-linear-gradient(135deg, var(--vermelho) 0 14px, var(--creme) 14px 28px);
+}
+@keyframes chegar { from { opacity: 0; transform: translateY(30px) scale(.96); } }
+.selo {
+  margin: 6px 0 4px; font-weight: 800; font-size: 13px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--vermelho);
+}
+h1 {
+  font: 800 clamp(34px, 9vw, 46px)/1.05 Fraunces, Georgia, serif;
+  margin: 0 0 18px; color: var(--tinta); text-wrap: balance;
+}
+p { font-size: 17px; line-height: 1.5; margin: 0 0 14px; color: var(--tinta-suave); text-wrap: pretty; }
+.ola { font: italic 600 26px/1.2 Fraunces, Georgia, serif; color: var(--verde); margin-bottom: 10px; }
+.dica { font-size: 14px; margin: 16px 0 0; }
+
+.botao {
+  font: 800 19px Nunito, sans-serif; color: #fff;
+  background: linear-gradient(180deg, var(--vermelho), var(--vermelho-escuro));
+  border: 0; border-radius: 999px; padding: 17px 34px; margin-top: 8px; cursor: pointer;
+  box-shadow: 0 8px 0 #6e1220, 0 16px 26px rgba(156,28,44,.4);
+  transition: transform .12s, box-shadow .12s;
+  animation: pulsar 2.2s ease-in-out infinite;
+}
+.botao:hover { transform: translateY(-2px); }
+.botao:active { transform: translateY(6px); box-shadow: 0 2px 0 #6e1220, 0 6px 12px rgba(156,28,44,.4); }
+.botao:focus-visible, .idiomas button:focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
+.botao.discreto {
+  background: none; color: var(--tinta-suave); box-shadow: none; animation: none;
+  font-size: 15px; padding: 10px 18px; text-decoration: underline;
+}
+@keyframes pulsar { 50% { transform: scale(1.04); } }
+
+/* roleta */
+.janela {
+  --h: 84px;
+  height: var(--h); overflow: hidden; margin: 18px 0 8px;
+  border-radius: 20px; background: var(--tinta);
+  box-shadow: inset 0 10px 18px rgba(0,0,0,.5), 0 0 0 4px var(--ouro);
+  position: relative;
+}
+.janela::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(20,48,63,.9), transparent 30%, transparent 70%, rgba(20,48,63,.9));
+}
+.rolo { will-change: transform; }
+.rolo div {
+  height: var(--h); display: grid; place-items: center; padding: 0 12px;
+  font: 800 clamp(24px, 7.5vw, 34px)/1 Fraunces, Georgia, serif; color: var(--creme);
+  white-space: nowrap;
+}
+
+/* resultado */
+.nome {
+  font: 800 clamp(40px, 13vw, 62px)/1.05 Fraunces, Georgia, serif;
+  color: var(--vermelho); margin: 6px 0 16px; overflow-wrap: anywhere;
+  animation: estourar .9s cubic-bezier(.2,1.6,.4,1) both;
+}
+.presente { font-size: 54px; line-height: 1; margin-bottom: 6px; animation: estourar .7s cubic-bezier(.2,1.6,.4,1) both; }
+@keyframes estourar { from { opacity: 0; transform: scale(.3) rotate(-8deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora i, .botao, .cartao, .nome, .presente { animation: none; }
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="neve" aria-hidden="true"></canvas>
+<svg id="floresta" aria-hidden="true" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice"></svg>
+
+<nav class="idiomas" aria-label="Idioma · Language · Langue">
+  <button type="button" data-idioma="pt">PT</button>
+  <button type="button" data-idioma="en">EN</button>
+  <button type="button" data-idioma="fr">FR</button>
+</nav>
+
+<main>
+  <section class="cartao" aria-live="polite">
+    <p class="selo">🍁 <span data-t="selo"></span> 🍁</p>
+    <h1 data-t="titulo"></h1>
+
+    <div id="tela-inicio" hidden>
+      <p class="ola" data-t="ola"></p>
+      <p data-t="intro"></p>
+      <button class="botao" id="sortear" type="button" data-t="botao"></button>
+      <p class="dica" data-t="dica"></p>
+    </div>
+
+    <div id="tela-roleta" hidden>
+      <p data-t="sorteando"></p>
+      <div class="janela"><div class="rolo" id="rolo"></div></div>
+    </div>
+
+    <div id="tela-resultado" hidden>
+      <div class="presente">🎁</div>
+      <p data-t="tirou"></p>
+      <p class="nome" id="nome"></p>
+      <p data-t="segredo"></p>
+      <button class="botao discreto" id="denovo" type="button" data-t="denovo"></button>
+    </div>
+
+    <div id="tela-erro" hidden>
+      <div class="presente">☃️</div>
+      <p data-t="erro"></p>
+    </div>
+  </section>
+</main>
+<canvas id="confete" aria-hidden="true"></canvas>
+
+<script>
+const TEXTOS = {
+  pt: {
+    selo: "Natal no Canadá",
+    titulo: "Amigo Oculto",
+    ola: "Olá, {nome}!",
+    intro: "O sorteio já foi feito e o seu amigo oculto está esperando. Confira se ninguém está espiando a sua tela!",
+    botao: "🎅 Sortear",
+    dica: "👀 Só você deve ver o resultado.",
+    sorteando: "Sorteando…",
+    tirou: "Você tirou",
+    segredo: "🤫 Guarde segredo até o Natal!",
+    denovo: "Ver o sorteio de novo",
+    erro: "Este link não parece válido. Abra o link que chegou no seu e-mail, direto pelo botão.",
+  },
+  en: {
+    selo: "Christmas in Canada",
+    titulo: "Secret Santa",
+    ola: "Hi, {nome}!",
+    intro: "The draw is done and your Secret Santa match is waiting. Make sure nobody is peeking at your screen!",
+    botao: "🎅 Draw",
+    dica: "👀 The result is for your eyes only.",
+    sorteando: "Drawing…",
+    tirou: "You got",
+    segredo: "🤫 Keep it secret until Christmas!",
+    denovo: "Watch the draw again",
+    erro: "This link doesn't look valid. Open the link from your email, straight from the button.",
+  },
+  fr: {
+    selo: "Noël au Canada",
+    titulo: "Pige de Noël",
+    ola: "Bonjour, {nome} !",
+    intro: "La pige est faite et ta personne mystère t'attend. Assure-toi que personne ne regarde ton écran !",
+    botao: "🎅 Piger",
+    dica: "👀 Le résultat est juste pour toi.",
+    sorteando: "On pige…",
+    tirou: "Tu as pigé",
+    segredo: "🤫 Garde le secret jusqu'à Noël !",
+    denovo: "Revoir la pige",
+    erro: "Ce lien ne semble pas valide. Ouvre le lien reçu par courriel, directement avec le bouton.",
+  },
+};
+
+/*DECODE-START*/
+function decifrar(token) {
+  const b64 = token.replace(/-/g, "+").replace(/_/g, "/");
+  const bin = atob(b64 + "=".repeat((4 - b64.length % 4) % 4));
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  const chave = bytes.subarray(0, 16), corpo = bytes.subarray(16);
+  const claro = corpo.map((b, i) => b ^ chave[i % 16]);
+  const d = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(claro));
+  if (typeof d.q !== "string" || typeof d.t !== "string" || !Array.isArray(d.n)) throw new Error("token");
+  return d;
+}
+/*DECODE-END*/
+
+const $ = id => document.getElementById(id);
+const calmo = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let dados = null;
+let idioma = (navigator.language || "pt").slice(0, 2).toLowerCase();
+if (!TEXTOS[idioma]) idioma = "pt";
+
+function aplicarIdioma(novo) {
+  idioma = novo;
+  document.documentElement.lang = novo;
+  const t = TEXTOS[novo];
+  document.title = t.titulo + " 🎄";
+  document.querySelectorAll("[data-t]").forEach(el => {
+    el.textContent = t[el.dataset.t].replace("{nome}", dados ? dados.q : "");
+  });
+  document.querySelectorAll(".idiomas button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.idioma === novo)));
+}
+document.querySelectorAll(".idiomas button").forEach(b =>
+  b.addEventListener("click", () => aplicarIdioma(b.dataset.idioma)));
+
+function mostrar(tela) {
+  ["inicio", "roleta", "resultado", "erro"].forEach(t => $("tela-" + t).hidden = t !== tela);
+}
+
+/* ---------- roleta ---------- */
+function montarRolo() {
+  const outros = dados.n.filter(n => n !== dados.q);
+  const distratores = outros.filter(n => n !== dados.t);
+  const lista = [];
+  const voltas = 34;
+  for (let i = 0; i < voltas; i++) {
+    const fonte = i === voltas - 1 && distratores.length ? distratores : outros;
+    let n;
+    do { n = fonte[Math.floor(Math.random() * fonte.length)]; }
+    while (fonte.length > 1 && n === lista[lista.length - 1]);
+    lista.push(n);
+  }
+  lista.push(dados.t);
+  const rolo = $("rolo");
+  rolo.replaceChildren(...lista.map(n => {
+    const d = document.createElement("div");
+    d.textContent = n;
+    return d;
+  }));
+  return lista.length;
+}
+
+function revelar() {
+  $("nome").textContent = dados.t;
+  mostrar("resultado");
+  if (!calmo) soltarConfete();
+}
+
+function sortear() {
+  if (calmo) return revelar();
+  const total = montarRolo();
+  const rolo = $("rolo");
+  mostrar("roleta");
+  rolo.style.transition = "none";
+  rolo.style.transform = "translateY(0)";
+  const altura = rolo.firstElementChild.offsetHeight;
+  rolo.getBoundingClientRect();
+  rolo.style.transition = "transform 6s cubic-bezier(.12,.72,.08,1)";
+  rolo.style.transform = `translateY(${-(total - 1) * altura}px)`;
+  let feito = false;
+  const fim = () => { if (!feito) { feito = true; setTimeout(revelar, 700); } };
+  rolo.addEventListener("transitionend", fim, { once: true });
+  setTimeout(fim, 6400);
+}
+$("sortear").addEventListener("click", sortear);
+$("denovo").addEventListener("click", sortear);
+
+/* ---------- neve ---------- */
+function ajustar(canvas) {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  const ctx = canvas.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return ctx;
+}
+(function neve() {
+  const canvas = $("neve");
+  let ctx = ajustar(canvas);
+  let flocos = [];
+  const criar = () => {
+    const qtd = Math.round(Math.min(160, innerWidth * innerHeight / 7000));
+    flocos = Array.from({ length: qtd }, () => ({
+      x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+      r: 1 + Math.random() * 3, v: .4 + Math.random() * 1.3,
+      fase: Math.random() * 6.28, a: .4 + Math.random() * .6,
+    }));
+  };
+  const desenhar = () => {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (const f of flocos) {
+      ctx.globalAlpha = f.a;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, 6.28);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+    }
+  };
+  const quadro = () => {
+    for (const f of flocos) {
+      f.y += f.v;
+      f.fase += .012;
+      f.x += Math.sin(f.fase) * .5;
+      if (f.y > innerHeight + 5) { f.y = -5; f.x = Math.random() * innerWidth; }
+    }
+    desenhar();
+    requestAnimationFrame(quadro);
+  };
+  criar();
+  addEventListener("resize", () => { ctx = ajustar(canvas); criar(); if (calmo) desenhar(); });
+  calmo ? desenhar() : quadro();
+})();
+
+/* ---------- confete ---------- */
+function soltarConfete() {
+  const canvas = $("confete");
+  const ctx = ajustar(canvas);
+  const cores = ["#c8283a", "#f4c95d", "#1f7a55", "#ffffff", "#37b6e6"];
+  const pecas = Array.from({ length: 150 }, (_, i) => ({
+    x: innerWidth / 2 + (Math.random() - .5) * 80,
+    y: innerHeight * .45,
+    vx: (Math.random() - .5) * 16,
+    vy: -6 - Math.random() * 13,
+    giro: Math.random() * 6.28, vg: (Math.random() - .5) * .3,
+    tam: 6 + Math.random() * 8,
+    cor: cores[i % cores.length],
+    folha: i % 5 === 0,
+  }));
+  const inicio = performance.now();
+  const quadro = agora => {
+    const t = agora - inicio;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (const p of pecas) {
+      p.vy += .28; p.vx *= .99;
+      p.x += p.vx; p.y += Math.min(p.vy, 7); p.giro += p.vg;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, 1 - Math.max(0, t - 3500) / 1500);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.giro);
+      if (p.folha) {
+        ctx.font = `${p.tam * 2.4}px serif`;
+        ctx.fillText("🍁", -p.tam, p.tam);
+      } else {
+        ctx.fillStyle = p.cor;
+        ctx.fillRect(-p.tam / 2, -p.tam / 4, p.tam, p.tam / 2);
+      }
+      ctx.restore();
+    }
+    if (t < 5000) requestAnimationFrame(quadro);
+    else ctx.clearRect(0, 0, innerWidth, innerHeight);
+  };
+  requestAnimationFrame(quadro);
+}
+
+/* ---------- floresta ---------- */
+(function floresta() {
+  let semente = 7;
+  const rnd = () => (semente = (semente * 16807) % 2147483647) / 2147483647;
+  const pinheiro = (x, base, h, l) => {
+    let d = "";
+    for (let i = 0; i < 3; i++) {
+      const topo = base - h + i * h * .24, pe = base - h * .08 + (i - 2) * h * .22, meia = l * (.5 + i * .25);
+      d += `M${x},${topo} L${x + meia},${pe} L${x - meia},${pe} Z `;
+    }
+    return d + `M${x - l * .08},${base - h * .1} h${l * .16} V${base} h${-l * .16} Z `;
+  };
+  let fundo = "", frente = "";
+  for (let x = -20; x < 1240; x += 34 + rnd() * 30) fundo += pinheiro(x, 262, 90 + rnd() * 70, 46 + rnd() * 16);
+  for (let x = -10; x < 1240; x += 60 + rnd() * 70) frente += pinheiro(x, 284, 120 + rnd() * 110, 70 + rnd() * 26);
+  $("floresta").innerHTML =
+    `<path d="${fundo}" fill="#0f3a4c"/>` +
+    `<path d="M0,262 Q300,236 600,256 T1200,250 V300 H0 Z" fill="#cfe6ee" opacity=".55"/>` +
+    `<path d="${frente}" fill="#082231"/>` +
+    `<path d="M0,284 Q260,262 560,280 T1200,274 V300 H0 Z" fill="#f4fbff"/>`;
+})();
+
+/* ---------- início ---------- */
+try {
+  dados = decifrar(location.hash.slice(1));
+  aplicarIdioma(idioma);
+  mostrar("inicio");
+} catch (e) {
+  dados = null;
+  aplicarIdioma(idioma);
+  mostrar("erro");
+}
+</script>
+</body>
+</html>

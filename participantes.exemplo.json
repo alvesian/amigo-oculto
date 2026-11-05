@@ -1,0 +1,11 @@
+{
+  "participantes": [
+    {"nome": "Ana", "email": "ana@example.com"},
+    {"nome": "Bruno", "email": "bruno@example.com"},
+    {"nome": "Hélène", "email": "helene@example.com"},
+    {"nome": "Diego", "email": "diego@example.com"}
+  ],
+  "proibidos": [
+    ["Ana", "Bruno"]
+  ]
+}
