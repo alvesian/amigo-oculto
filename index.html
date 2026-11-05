@@ -249,8 +249,10 @@ function mostrar(tela) {
 }
 
 /* ---------- roleta ---------- */
+const FIGURANTES = ["Grinch", "Harry Potter", "Papai Noel", "Rudolph", "Olaf", "Kevin McCallister",
+  "Elsa", "Frosty", "Mamãe Noel", "Scrooge", "Wolverine", "Shrek", "Um alce 🫎"];
 function montarRolo() {
-  const outros = dados.n.filter(n => n !== dados.q);
+  const outros = dados.n.filter(n => n !== dados.q).concat(FIGURANTES.filter(f => !dados.n.includes(f)));
   const distratores = outros.filter(n => n !== dados.t);
   const lista = [];
   const voltas = 34;
